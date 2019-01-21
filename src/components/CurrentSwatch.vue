@@ -23,14 +23,16 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import SatValPicker from '@/components/CurrentSwatch/SatValPicker';
+import HuePicker from '@/components/CurrentSwatch/HuePicker';
 import HexPicker from '@/components/CurrentSwatch/HexPicker';
 import NumPicker from '@/components/CurrentSwatch/NumPicker';
 
 export default {
   name: 'CurrentSwatch',
   components: {
-    SatValPicker: () => ({}),
-    HuePicker: () => ({}),
+    SatValPicker,
+    HuePicker,
     NumPicker,
     HexPicker
   },

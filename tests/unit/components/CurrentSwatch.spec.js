@@ -56,13 +56,13 @@ describe('CurrentSwatch.vue', () => {
     }
   );
 
-  xit('renders a HuePicker component', () => {
+  it('renders a HuePicker component', () => {
     const componentTag = wrapper.find('huepicker-stub');
 
     expect(componentTag.exists()).toBe(true);
   });
 
-  xit('renders a SatValPicker component', () => {
+  it('renders a SatValPicker component', () => {
     const componentTag = wrapper.find('satvalpicker-stub');
 
     expect(componentTag.exists()).toBe(true);
