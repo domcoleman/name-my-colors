@@ -4,6 +4,7 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 import { mutations } from '@/store/mutations';
+import { actions } from '@/store/actions';
 
 export const store = new Vuex.Store({
   state: {
@@ -11,6 +12,6 @@ export const store = new Vuex.Store({
     activeSwatch: 0
   },
   mutations,
-  actions: {},
+  actions,
   getters: {}
 });
