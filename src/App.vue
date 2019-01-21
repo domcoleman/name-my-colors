@@ -42,9 +42,7 @@ export default {
     }
   },
   created() {
-    if (!this.$store.state.swatches.length) {
-      this.$store.dispatch('createColorSwatch', { setActive: true });
-    }
+    this.$store.dispatch('createColorSwatch', { setActive: true });
   }
 };
 </script>

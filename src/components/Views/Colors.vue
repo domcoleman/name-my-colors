@@ -6,11 +6,13 @@
 </template>
 
 <script>
+import Swatches from '@/components/Swatches';
+
 export default {
   name: 'Colors',
   components: {
     CurrentSwatch: () => ({}),
-    Swatches: () => ({})
+    Swatches
   }
 };
 </script>
