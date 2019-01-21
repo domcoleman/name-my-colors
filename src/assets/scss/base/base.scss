@@ -1,0 +1,55 @@
+:root {
+  --base-size: #{$base-size};
+
+  @include media('>desktop') {
+    --base-size: #{$desktop-size};
+  }
+}
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  font-family: $base-font-family;
+  font-size: var(--base-size);
+  word-spacing: 1px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background: $base-background-color;
+  color: $base-color;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  margin: 1rem;
+  width: 19.75rem;
+  min-height: 25rem;
+  background-color: $content-background-color;
+  color: $content-color;
+  border-radius: $border-radius;
+  padding: 0.25rem;
+  display: flex;
+  flex-direction: column;
+
+  @include media('>tablet') {
+    width: 28rem;
+  }
+}
+
+.content {
+  flex-grow: 1;
+  margin: 0.25rem;
+}

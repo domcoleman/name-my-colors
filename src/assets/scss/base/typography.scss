@@ -1,0 +1,30 @@
+.title {
+  font-size: 1.82rem;
+  text-align: center;
+  color: $link-color;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.125rem;
+  border-bottom: 1px solid $active-link-color;
+}
+
+p {
+  margin-bottom: 0.5rem;
+
+  &:first-of-type {
+    margin-top: 0.5rem;
+  }
+}
+
+a {
+  &:link,
+  &:active,
+  &:visited {
+    color: $link-color;
+    transition: color 0.3s ease-in-out;
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: $hover-link-color;
+  }
+}
