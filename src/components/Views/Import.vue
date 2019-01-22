@@ -49,11 +49,9 @@ export default {
         .map(this.createHexCode)
         .map(hexcode => hexcode.toUpperCase());
 
-      console.log('called');
       if (!colorValues.length) {
         this.importData = 'No hex codes added';
       } else {
-        console.log('found stuff');
         this.importColorSwatches({
           colorValues,
           clearPrevious: this.clearOriginalData
