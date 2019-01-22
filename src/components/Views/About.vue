@@ -21,8 +21,8 @@
       export them as variables with each color named by NTC.
     </p>
     <p>
-      This project is released under the
-      <a href="http://opensource.org/licenses/MIT">MIT license</a>.
+      This project is copyright &copy; 2019 Dominic Coleman and released under
+      the <a href="http://opensource.org/licenses/MIT">MIT license</a>.
     </p>
   </main>
 </template>
