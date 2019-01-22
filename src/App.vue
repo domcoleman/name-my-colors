@@ -22,6 +22,7 @@ import '@/assets/scss/base/typography.scss';
 import NavigationLinks from '@/components/NavigationLinks';
 import Colors from '@/components/Views/Colors';
 import Import from '@/components/Views/Import';
+import Export from '@/components/Views/Export';
 import About from '@/components/Views/About';
 
 export default {
@@ -30,6 +31,7 @@ export default {
     NavigationLinks,
     Colors,
     Import,
+    Export,
     About
   },
   data() {
