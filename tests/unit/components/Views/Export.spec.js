@@ -63,6 +63,26 @@ describe('Export.vue', () => {
           s: 100,
           v: 100,
           name: 'Green'
+        },
+        {
+          hex: '0AFF3B',
+          r: 10,
+          g: 255,
+          b: 59,
+          h: 132,
+          s: 96,
+          v: 100,
+          name: 'Green'
+        },
+        {
+          hex: 'C7369E',
+          r: 199,
+          g: 65,
+          b: 158,
+          h: 317,
+          s: 73,
+          v: 78,
+          name: 'Medium Red Violet'
         }
       ],
       activeSwatch: 1
@@ -74,7 +94,7 @@ describe('Export.vue', () => {
   it('exports color names in proper format', () => {
     const exportField = wrapper.find({ ref: 'exportData' });
 
-    expect(exportField.element.value).toContain('dark-blue');
+    expect(exportField.element.value).toContain('medium-red-violet');
   });
 
   it('exports color names followed by their value', () => {
@@ -124,7 +144,7 @@ describe('Export.vue', () => {
     state.swatches.push(state.swatches[0]);
     const exportField = wrapper.find({ ref: 'exportData' });
 
-    expect(exportField.element.value).not.toMatch(/red.+red/s);
+    expect(exportField.element.value).not.toMatch(/#FF0000.+#FF0000:/s);
   });
 
   it('exports each color swatch', () => {
@@ -133,6 +153,12 @@ describe('Export.vue', () => {
     for (let index = 0; index < state.swatches.length; index++) {
       expect(exportField.element.value).toContain(state.swatches[index].hex);
     }
+  });
+
+  it('numbers colors with the same name but different values', () => {
+    const exportField = wrapper.find({ ref: 'exportData' });
+
+    expect(exportField.element.value).toMatch(/green.+green-2/s);
   });
 
   it('exports each color swatch in original order by default', () => {

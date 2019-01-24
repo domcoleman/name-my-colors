@@ -129,12 +129,21 @@ export default {
   },
   methods: {
     convertSwatchName(swatchName) {
-      return swatchName.toLowerCase().replace(/ /, '-');
+      return swatchName.toLowerCase().replace(/ /g, '-');
     },
-    mapSwatch(swatch) {
+    mapSwatch(swatch, swatchIndex, swatches) {
+      const colorNumber = swatches
+        .slice(0, swatchIndex)
+        .reduce(
+          (accumulator, currentSwatch) =>
+            currentSwatch.name === swatch.name ? accumulator + 1 : accumulator,
+          1
+        );
+      const swatchName = this.convertSwatchName(swatch.name);
+
       return [
         this.exportFormat.prefix,
-        this.convertSwatchName(swatch.name),
+        swatchName + (colorNumber > 1 ? `-${colorNumber}` : ''),
         this.exportFormat.assigner,
         this.colorFormat(swatch),
         this.exportFormat.suffix
