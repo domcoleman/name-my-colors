@@ -44,7 +44,7 @@ export default {
     ...mapActions(['importColorSwatches']),
     async importHexCodes() {
       const colorValues = this.importData
-        .split(/[ \n,]/)
+        .split(/[ \n,;]/)
         .filter(this.isValidHexCode)
         .map(this.createHexCode)
         .map(hexcode => hexcode.toUpperCase());

@@ -48,8 +48,10 @@ describe('Import.vue', () => {
   });
 
   it('submitting calls importColorSwatches with each valid hexcode', async () => {
-    const setValueTo = `#000 #ff dfd 9898bb\n#afafee #66gg66 #cdcd #999 cd81ba`;
-    const expectReturn = '000000 DDFFDD 9898BB AFAFEE 999999 CD81BA'.split(' ');
+    const setValueTo = `#000 #ff dfd 9898bb\n#afafee #66gg66 #cdcd #999 cd81ba dcde91; #ffdaff;`;
+    const expectReturn = '000000 DDFFDD 9898BB AFAFEE 999999 CD81BA DCDE91 FFDAFF'.split(
+      ' '
+    );
 
     const importData = wrapper.find({ ref: 'importData' });
     const submit = wrapper.find({ ref: 'submitImport' });
