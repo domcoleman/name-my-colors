@@ -21,18 +21,15 @@ import '@/assets/scss/base/typography.scss';
 // Components
 import NavigationLinks from '@/components/NavigationLinks';
 import Colors from '@/components/Views/Colors';
-import Import from '@/components/Views/Import';
-import Export from '@/components/Views/Export';
-import About from '@/components/Views/About';
 
 export default {
   name: 'NameMyColors',
   components: {
     NavigationLinks,
     Colors,
-    Import,
-    Export,
-    About
+    Import: () => import('@/components/Views/Import'),
+    Export: () => import('@/components/Views/Export'),
+    About: () => import('@/components/Views/About')
   },
   data() {
     return {
@@ -42,7 +39,7 @@ export default {
   },
   methods: {
     switchView(component) {
-      if (this.$options.components[component]) this.currentView = component;
+      if (this.views.includes(component)) this.currentView = component;
     }
   },
   created() {

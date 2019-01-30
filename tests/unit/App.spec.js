@@ -1,6 +1,6 @@
 import App from '@/App';
 import Vuex from 'vuex';
-import { shallowMount, createLocalVue } from '@vue/test-utils';
+import { mount, createLocalVue } from '@vue/test-utils';
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
@@ -20,9 +20,13 @@ describe('App.vue', () => {
       activeSwatch: 0
     };
     store = new Vuex.Store({ state, actions });
-    wrapper = shallowMount(App, {
+    wrapper = mount(App, {
       store,
-      localVue
+      localVue,
+      stubs: {
+        NavigationLinks: true,
+        Colors: true
+      }
     });
   });
 
@@ -47,16 +51,14 @@ describe('App.vue', () => {
         const component = wrapper.find({ ref: componentRef });
         component.vm.$emit('showView', 'Mock');
 
-        const currentView = wrapper.find({ ref: 'currentView' });
-        expect(currentView.name()).toBe('Colors');
+        expect(wrapper.vm.currentView).toBe('Colors');
       });
 
       it('switches to the view when it exists', () => {
         const component = wrapper.find({ ref: componentRef });
         component.vm.$emit('showView', 'About');
 
-        const currentView = wrapper.find({ ref: 'currentView' });
-        expect(currentView.name()).toBe('About');
+        expect(wrapper.vm.currentView).toBe('About');
       });
     }
   );
