@@ -43,11 +43,15 @@ export default {
   methods: {
     ...mapActions(['importColorSwatches']),
     async importHexCodes() {
-      const colorValues = this.importData
-        .split(/[ \n,;]/)
-        .filter(this.isValidHexCode)
-        .map(this.createHexCode)
-        .map(hexcode => hexcode.toUpperCase());
+      const colorValues = this.importData.split(/[ \n,;]/).reduce((
+        hexResults,
+        currentString
+      ) => {
+        if (this.isValidHexCode(currentString)) {
+          hexResults.push(this.createHexCode(currentString).toUpperCase());
+        }
+        return hexResults;
+      }, []);
 
       if (!colorValues.length) {
         this.importData = 'No hex codes added';
