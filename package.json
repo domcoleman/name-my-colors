@@ -37,7 +37,7 @@
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "flush-promises": "^1.0.2",
-    "node-sass": "^4.9.0",
+    "node-sass": "^7.0.0",
     "push-dir": "^0.4.1",
     "sass-loader": "^7.0.1",
     "style-resources-loader": "^1.2.1",
